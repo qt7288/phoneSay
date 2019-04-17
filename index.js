@@ -633,23 +633,23 @@ server.get("/selectThingsMine",(req,res)=>{
 // 反馈页面
     server.get("/getPhoto",(req,res)=>{
       var photo=[
-        {photoid:1,img:"http://127.0.0.1:3000/bg01.jpg",title:"雪地"},
-        {photoid:2,img:"http://127.0.0.1:3000/bg02.jpg",title:"枫叶"},
-        {photoid:3,img:"http://127.0.0.1:3000/bg03.jpg",title:"曦夜"},
-        {photoid:4,img:"http://127.0.0.1:3000/bg04.jpg",title:"墙壁"},
-        {photoid:5,img:"http://127.0.0.1:3000/bg05.jpg",title:"水漾"},
-        {photoid:6,img:"http://127.0.0.1:3000/bg06.jpg",title:"紫色的夜"},
-        {photoid:7,img:"http://127.0.0.1:3000/bg07.jpg",title:"海岸"},
-        {photoid:8,img:"http://127.0.0.1:3000/bg08.jpg",title:"小城"},
-        {photoid:9,img:"http://127.0.0.1:3000/bg09.jpg",title:"眺望"},
-        {photoid:10,img:"http://127.0.0.1:3000/bg10.jpg",title:"三色"},
-        {photoid:11,img:"http://127.0.0.1:3000/bg11.jpg",title:"柯兰"},
-        {photoid:12,img:"http://127.0.0.1:3000/bg12.jpg",title:"抽象"},
-        {photoid:13,img:"http://127.0.0.1:3000/bg13.jpg",title:"冰山"},
-        {photoid:14,img:"http://127.0.0.1:3000/bg14.jpg",title:"深渊"},
-        {photoid:15,img:"http://127.0.0.1:3000/bg15.jpg",title:"星空"},
-        {photoid:16,img:"http://127.0.0.1:3000/bg16.jpg",title:"玺"},
-        {photoid:17,img:"http://127.0.0.1:3000/bg17.jpg",title:"抽象"},
+        {photoid:1,img:"bg01.jpg",title:"雪地"},
+        {photoid:2,img:"bg02.jpg",title:"枫叶"},
+        {photoid:3,img:"bg03.jpg",title:"曦夜"},
+        {photoid:4,img:"bg04.jpg",title:"墙壁"},
+        {photoid:5,img:"bg05.jpg",title:"水漾"},
+        {photoid:6,img:"bg06.jpg",title:"紫色的夜"},
+        {photoid:7,img:"bg07.jpg",title:"海岸"},
+        {photoid:8,img:"bg08.jpg",title:"小城"},
+        {photoid:9,img:"bg09.jpg",title:"眺望"},
+        {photoid:10,img:"bg10.jpg",title:"三色"},
+        {photoid:11,img:"bg11.jpg",title:"柯兰"},
+        {photoid:12,img:"bg12.jpg",title:"抽象"},
+        {photoid:13,img:"bg13.jpg",title:"冰山"},
+        {photoid:14,img:"bg14.jpg",title:"深渊"},
+        {photoid:15,img:"bg15.jpg",title:"星空"},
+        {photoid:16,img:"bg16.jpg",title:"玺"},
+        {photoid:17,img:"bg17.jpg",title:"抽象"},
       ];
       res.send({code:1,data:photo})
     })
@@ -658,10 +658,10 @@ server.get("/selectThingsMine",(req,res)=>{
 //  home页面轮播
     server.get("/imglist",(req,res)=>{
       var rows = [
-        {id:1,img_url:"http://127.0.0.1:3000/bg12.jpg"},
-        {id:2,img_url:"http://127.0.0.1:3000/bg13.jpg"},
-        {id:3,img_url:"http://127.0.0.1:3000/bg06.jpg"},
-        {id:4,img_url:"http://127.0.0.1:3000/bg05.jpg"},
+        {id:1,img_url:"bg12.jpg"},
+        {id:2,img_url:"bg13.jpg"},
+        {id:3,img_url:"bg06.jpg"},
+        {id:4,img_url:"bg05.jpg"},
       ];
       res.send({code:1,data:rows});
     });
@@ -672,12 +672,12 @@ server.get("/selectThingsMine",(req,res)=>{
 // 目标目录暂存本地
     server.get("/grid",(req,res)=>{
       var rows = [
-        {id:1,title:"发表",img_url:"http://127.0.0.1:3000/img/grid/menu1.png"},
-        {id:2,title:"时间",img_url:"http://127.0.0.1:3000/img/grid/menu2.png"},
-        {id:3,title:"聊天",img_url:"http://127.0.0.1:3000/img/grid/menu3.png"},
-        {id:4,title:"日志",img_url:"http://127.0.0.1:3000/img/grid/menu4.png"},
-        {id:5,title:"我的空间",img_url:"http://127.0.0.1:3000/img/grid/menu5.png"},
-        {id:6,title:"加好友",img_url:"http://127.0.0.1:3000/img/grid/menu6.png"},            
+        {id:1,title:"发表",img_url:"img/grid/menu1.png"},
+        {id:2,title:"时间",img_url:"img/grid/menu2.png"},
+        {id:3,title:"聊天",img_url:"img/grid/menu3.png"},
+        {id:4,title:"日志",img_url:"img/grid/menu4.png"},
+        {id:5,title:"我的空间",img_url:"img/grid/menu5.png"},
+        {id:6,title:"加好友",img_url:"img/grid/menu6.png"},            
       ];
       res.send(rows);
     });
