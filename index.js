@@ -683,23 +683,6 @@ server.get("/selectThingsMine",(req,res)=>{
       res.send(rows);
     });
 
-// 功能<28>
-  const multer=require("multer");
-  // const fs=require("fs");
-  // var upload=multer({dest:"public/upload/"})
-  //   // 接收post请求multer
-  // server.post("/uploadFile",upload.single("mypic"),(req,res)=>{
-  //     // 时间
-  //       var time=new Date().getTime();
-  //       var rr=Math.floor(Math.random()*9999);
-  //       var src=req.file.originalname;
-  //       var i3=src.lastIndexOf(".");
-  //       var suff=src.substring(i3);
-  //       var newFile=__dirname+"/public/upload/"+time+rr+suff;
-  //       fs.renameSync(req.file.path,newFile);
-  //       res.send({code:1,msg:"上传成功"});
-  // })
-
 // 功能<29>
 // 关于
 // selectAbout
