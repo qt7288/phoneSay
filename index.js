@@ -20,11 +20,12 @@ const bodyParser = require("body-parser");
 const cors = require("cors");
 
 var pool = mysql.createPool({
-  host     : process.env.MYSQL_HOST || "127.0.0.1",
-  port     : process.env.MYSQL_PORT || "3306",
-  user     : process.env.ACCESSKEY  || "root",
-  password : process.env.SECRETKEY  || "",
-  database : 'app_' + process.env.APPNAME
+  host     : process.env.MYSQL_HOST,
+  port     : process.env.MYSQL_PORT,
+  user     : process.env.ACCESSKEY,
+  password : process.env.SECRETKEY,
+  database : 'app_' + process.env.APPNAME,
+  connectionLimit:100
 });
 
 
@@ -684,20 +685,20 @@ server.get("/selectThingsMine",(req,res)=>{
 
 // 功能<28>
   const multer=require("multer");
-  const fs=require("fs");
-  var upload=multer({dest:"public/upload/"})
-    // 接收post请求multer
-  server.post("/uploadFile",upload.single("mypic"),(req,res)=>{
-      // 时间
-        var time=new Date().getTime();
-        var rr=Math.floor(Math.random()*9999);
-        var src=req.file.originalname;
-        var i3=src.lastIndexOf(".");
-        var suff=src.substring(i3);
-        var newFile=__dirname+"/public/upload/"+time+rr+suff;
-        fs.renameSync(req.file.path,newFile);
-        res.send({code:1,msg:"上传成功"});
-  })
+  // const fs=require("fs");
+  // var upload=multer({dest:"public/upload/"})
+  //   // 接收post请求multer
+  // server.post("/uploadFile",upload.single("mypic"),(req,res)=>{
+  //     // 时间
+  //       var time=new Date().getTime();
+  //       var rr=Math.floor(Math.random()*9999);
+  //       var src=req.file.originalname;
+  //       var i3=src.lastIndexOf(".");
+  //       var suff=src.substring(i3);
+  //       var newFile=__dirname+"/public/upload/"+time+rr+suff;
+  //       fs.renameSync(req.file.path,newFile);
+  //       res.send({code:1,msg:"上传成功"});
+  // })
 
 // 功能<29>
 // 关于
