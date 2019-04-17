@@ -1,31 +1,31 @@
--- 注释：判断是否存在qz，如果有就删除重新创建
-SET NAMES UTF8;
-DROP DATABASE IF EXISTS qzz;
-CREATE DATABASE qzz CHARSET=UTF8;
--- 注释：编码格式utf8
-USE qzz;
--- 注释：使用qz库
--- 用户详细信息
+# 注释：判断是否存在qz，如果有就删除重新创建
+#SET NAMES UTF8;
+#DROP DATABASE IF EXISTS qzz;
+#CREATE DATABASE qzz CHARSET=UTF8;
+# 注释：编码格式utf8
+#USE qzz;
+# 注释：使用qz库
+# 用户详细信息
 CREATE TABLE qz_u_all(
   id INT PRIMARY KEY AUTO_INCREMENT,
   uname VARCHAR(24),
-  -- 用户名
+  # 用户名
   upwd VARCHAR(32),
-  -- 用户密码
+  # 用户密码
   email VARCHAR(64),
-  -- 用户注册邮箱
+  # 用户注册邮箱
   gender INT,
-  -- 用户注册性别
+  # 用户注册性别
   avatar VARCHAR(100),
-  -- 签名
+  # 签名
   ctime VARCHAR(100),                
-  -- 用户注册时间
+  # 用户注册时间
   stateU BOOLEAN,
-  -- 登录状态
+  # 登录状态
   count int
-  -- 被赞
+  # 被赞
 );
--- 插入2条测试数据
+# 插入2条测试数据
 INSERT INTO qz_u_all VALUES(null,"qqq",md5("k123"),"2@qq.com",1,"努力总会有回报","111",false,1);
 INSERT INTO qz_u_all VALUES(null,"yyy",md5("k123"),"1@qq.com",0,"努力总会有回报","1111",false,2);
 INSERT INTO qz_u_all VALUES(null,"www",md5("k123"),"3@qq.com",0,"努力总会有回报","1111",false,2);
@@ -35,7 +35,7 @@ INSERT INTO qz_u_all VALUES(null,"fff",md5("k123"),"1651@qq.com",0,"努力总会
 INSERT INTO qz_u_all VALUES(null,"ddd",md5("k123"),"1156165@qq.com",0,"努力总会有回报","1111",false,2);
 INSERT INTO qz_u_all VALUES(null,"sss",md5("k123"),"156165@qq.com",0,"努力总会有回报","1111",false,2);
 
--- #用户好友搜索
+# #用户好友搜索
 CREATE TABLE qz_speak(
   aid INT PRIMARY KEY AUTO_INCREMENT,
   id INT,
@@ -44,8 +44,8 @@ CREATE TABLE qz_speak(
   frienduname VARCHAR(32) 
 );
 
--- INSERT INTO qz_speak VALUES(null,2,"yyy",1,"qqq");
--- #用户聊天记录
+# INSERT INTO qz_speak VALUES(null,2,"yyy",1,"qqq");
+# #用户聊天记录
 CREATE TABLE qz_speak_s(
   sid INT PRIMARY KEY AUTO_INCREMENT,
   frienduname VARCHAR(32),
@@ -56,7 +56,7 @@ CREATE TABLE qz_speak_s(
   sayTime VARCHAR(24)
 );
 
--- #用户发表朋友圈
+# #用户发表朋友圈
 CREATE TABLE qz_sayThing (
   sayid INT PRIMARY KEY AUTO_INCREMENT,
   id INT,
@@ -64,7 +64,7 @@ CREATE TABLE qz_sayThing (
   sayto VARCHAR(260),
   saytoTime VARCHAR(24)
 );
--- 用户登录日志
+# 用户登录日志
 CREATE TABLE qz_day(
   dayid INT PRIMARY KEY AUTO_INCREMENT,
   user_name VARCHAR(32),

@@ -32,8 +32,7 @@ var pool = mysql.createPool({
 var server = express();
 //3.1 配置允许访问列 脚手架8080
 server.use(cors({
-  origin:["http://127.0.0.1:8080",
-  "http://localhost:8080"],
+  origin:[],
   credentials:true
 }));
 // 3.11加载 模块 express-session
@@ -52,7 +51,7 @@ server.use(express.static("public"));
 //3.4: 配置json是否是自动转换 
 server.use(bodyParser.urlencoded({extended:false}))
 
-server.listen(3000);
+server.listen(5050);
 // 3000端口
 
 
