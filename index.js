@@ -20,12 +20,13 @@ const bodyParser = require("body-parser");
 const cors = require("cors");
 
 var pool = mysql.createPool({
-    host:"127.0.0.1",
-    user:"root",
-    password:"",
-    database:"qzz",
-    connectionLimit:100
+  host     : process.env.MYSQL_HOST || "127.0.0.1",
+  port     : process.env.MYSQL_PORT || "3306",
+  user     : process.env.ACCESSKEY  || "root",
+  password : process.env.SECRETKEY  || "",
+  database : 'app_' + process.env.APPNAME
 });
+
 
 //3:创建express对象
 var server = express();
