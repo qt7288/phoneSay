@@ -1,19 +1,7 @@
-﻿// 启动JS
-//共 <31>功能
-/*
-  好友栏，
-  好友信息，
-  好友聊天信息，
-  好友状态，
-  好友的增，删，查，
-  加载聊天信息分页
-  全部变量保存用户数据
-  各页面，跳转传参
-  社交圈发送所有信息
-  个人发表
-  用户登陆日志
-
+﻿/*
+  功能板块2019-4-18 15:17:09
 */ 
+/*好友栏，*好友信息，*好友聊天信息，*好友状态，*好友的增，删，查*，加载聊天信息分页*全部变量保存用户数据*各页面，跳转传参*社交圈发送所有信息*个人发表*用户登陆日志*/ 
 const mysql = require("mysql");
 const express = require("express");
 const bodyParser = require("body-parser");
@@ -28,15 +16,13 @@ var pool = mysql.createPool({
   connectionLimit:100
 });
 
-
 //3:创建express对象
 var server = express();
-//3.1 配置允许访问列 脚手架8080
 server.use(cors({
   origin:[],
   credentials:true
 }));
-// 3.11加载 模块 express-session
+//express-session
 const session = require("express-session");
 server.use(session({
   secret:"128为随机数字符串",
@@ -48,12 +34,11 @@ server.use(session({
 }))
 //3.2 配置静态资源目录 public
 server.use(express.static("public"));
-//3.3：配置第三方中间件
 //3.4: 配置json是否是自动转换 
 server.use(bodyParser.urlencoded({extended:false}))
 
+// 监听端口配置
 server.listen(5050);
-// 3000端口
 
 // 功能<1>
 // 添加用户日志
@@ -89,9 +74,6 @@ server.listen(5050);
       //4:执行sql
       pool.query(sql,[user_name],(err,result)=>{
           if(err)throw err;
-          //5:获取数据库返回结果
-          //6:返回客户数据
-          //console.log(result);
           if(result.length>=1){
             res.send({code:200,data:result});
           }else{
@@ -717,10 +699,8 @@ server.post("/DelFrienduname",(req,res)=>{
   //4:执行sql
   pool.query(sql,[uname,friendid,frienduname,frienduname,friendid,uname],(err,result)=>{
       if(err)throw err;
-      // console.log(result);
       if(result.affectedRows>=1){
           res.send({code:1,data:result.affectedRows});
-          console.log(result.affectedRows)
       }
       var sql1="delete from qz_speak_s where uname = ? and frienduname =? or uname = ? and frienduname = ?"
       pool.query(sql1,[uname,frienduname,frienduname,uname],(err,result1)=>{
