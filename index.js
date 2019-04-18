@@ -253,26 +253,16 @@ server.listen(5050);
       var email = req.body.email;
       var p = req.body.upwd;
       // console.log(u+":"+p+":"+email);
-      //3:创建sql
-                var sql = "SELECT id FROM qz_u_all WHERE uname = ? AND email = ?";
-                //4:执行sql
-                pool.query(sql,[u,email],(err,result)=>{
-                    if(err)throw err;
-                  console.log(result[0].id);
-                    //6:返回客户数据
-                    if(result.length==0){
-                      res.send({code:-1,msg:"邮箱有误"});
-                    }else{
-                      var uid=result[0].id;
-                      var p = req.body.upwd;
-                      // console.log(p);
-                      var sql1="UPDATE qz_u_all SET upwd = md5(?),stateU = false WHERE id = ?"
-                      pool.query(sql1,[p,uid],(err,result1)=>{
+      //3:创建sql1
+                      var sql1="UPDATE qz_u_all SET upwd = md5(?),stateU = false WHERE uname = ? AND email = ?"
+                      pool.query(sql1,[p,u,email],(err,result1)=>{
                         if(err) throw err;
-                        res.send({code:1,msg:"修改成功",data:result1})
+                        if(result1.affectedRows>0){
+                          res.send({code:1,msg:"修改成功",data:result1})
+                        }else{
+                          res.send({code:-1})
+                        }
                       })
-                    }
-                })
             });
 
 // 功能<10>
