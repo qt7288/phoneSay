@@ -723,7 +723,7 @@ server.on("connection",(socket)=>{
   });
       // 根据不同条件判断，反馈给不同用户的对应值
   console.log("ws 服务器接收连接");
-  //5:服务器不停向客户端发送数据 定时器
+  //5:服务器不停向客户端发送数据 定时
   var counter = 1;
   var timer = setInterval(function(){
     counter++;
