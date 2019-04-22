@@ -711,19 +711,20 @@ server.post("/DelFrienduname",(req,res)=>{
       })
 });
 
+
 //2:引入ws模块
 const ws = require("ws");
 //3:创建ws服务器并且指定端口 9001
 var server = new ws.Server({port:9001});
-// console.log("ws 服务器开始监听端口");
+console.log("ws 服务器开始监听端口");
 //4:绑定事件 connection 客户端连接事件
 server.on("connection",(socket)=>{
   socket.on("message",(msg)=>{
-      // console.log("服务器接收到消息"+msg);
+      console.log("服务器接收到消息"+msg);
   });
       // 根据不同条件判断，反馈给不同用户的对应值
   console.log("ws 服务器接收连接");
-  //5:服务器不停向客户端发送数据 定时
+  //5:服务器不停向客户端发送数据 定时器
   var counter = 1;
   var timer = setInterval(function(){
     counter++;
@@ -736,4 +737,3 @@ server.on("connection",(socket)=>{
     clearInterval(timer);
   })
 });
-
