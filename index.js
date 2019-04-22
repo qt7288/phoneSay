@@ -19,7 +19,9 @@ var pool = mysql.createPool({
 //3:创建express对象
 var server = express();
 server.use(cors({
-  origin:[],
+  origin:[
+    "wss://phonesay.applinzi.com:9001"
+  ],
   credentials:true
 }));
 //express-session
@@ -717,7 +719,7 @@ console.log("ws 服务器开始监听端口");
 //4:绑定事件 connection 客户端连接事件
 server.on("connection",(socket)=>{
   socket.on("message",(msg)=>{
-    if(msg[0].say==""){
+    if(msg.say==""){
       console.log("没有信息发送");
     }
     else{
