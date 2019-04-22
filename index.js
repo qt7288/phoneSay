@@ -715,7 +715,7 @@ server.post("/DelFrienduname",(req,res)=>{
 //2:引入ws模块
 const ws = require("ws");
 //3:创建ws服务器并且指定端口 9001
-var server = new ws.Server({port:9001});
+// var server = new ws.Server({port:100});
 console.log("ws 服务器开始监听端口");
 //4:绑定事件 connection 客户端连接事件
 server.on("connection",(socket)=>{
